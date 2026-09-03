@@ -40,7 +40,11 @@ class ArrangingCoins441 {
 
 class ArrangingCoins441 {
     public int arrangeCoins(int n) {
-        /* k (k + 1) \ 2 */
+
+        /* k (k + 1) \ 2
+        Only 2 will overflow for long array using 2.0 (double) which handle
+        large number then cast into int */ 
+        
         return (int) (Math.sqrt((2.0 * n) - 0.25) - 0.5);
     }
 }
