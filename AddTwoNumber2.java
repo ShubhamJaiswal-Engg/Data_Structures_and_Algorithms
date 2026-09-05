@@ -46,3 +46,31 @@ class AddTwoNumber2 {
         return result.next;
     }
 }
+
+// More Optimised
+
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = l1;  // reuse l1 as the result list
+        ListNode curr = dummy;
+        int carry = 0;
+
+        while (l1 != null || l2 != null || carry != 0) {
+            if (l1 == null) {
+                l1 = new ListNode(0);
+                curr.next = l1;
+            }
+
+            int sum = carry + l1.val + (l2 != null ? l2.val : 0);
+            l1.val = sum % 10;       // ✅ mutation used consistently
+            carry = sum / 10;
+
+            curr = l1;
+            l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
+        }
+
+        return dummy.next;
+    }
+}

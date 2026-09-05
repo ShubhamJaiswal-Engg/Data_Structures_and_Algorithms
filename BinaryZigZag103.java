@@ -22,7 +22,6 @@ class BinaryZigZag103 {
                 } else {
                     level.add(0, node.val); // insert at front to reverse
                 }
-
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
             }
