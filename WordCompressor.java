@@ -1,3 +1,6 @@
+
+// Word Compressor
+
 public class Solution {
     public static int compress(char[] chars) {
         int n = chars.length;
