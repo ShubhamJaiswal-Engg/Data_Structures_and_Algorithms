@@ -63,7 +63,7 @@ class Solution {
             }
 
             int sum = carry + l1.val + (l2 != null ? l2.val : 0);
-            l1.val = sum % 10;       // ✅ mutation used consistently
+            l1.val = sum % 10;       // mutation used consistently
             carry = sum / 10;
 
             curr = l1;

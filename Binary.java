@@ -1,3 +1,6 @@
+
+// Generating binary of any N
+
 import java.util.LinkedList;
 import java.util.Queue;
 

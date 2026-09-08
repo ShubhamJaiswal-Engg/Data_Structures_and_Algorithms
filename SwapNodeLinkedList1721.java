@@ -1,4 +1,6 @@
+
 // 1721. Swapping Nodes in a Linked List
+
 class SwapNodeLinkedList1721 {
     public ListNode swapNodes(ListNode head, int k) {
         int sz = 0;
