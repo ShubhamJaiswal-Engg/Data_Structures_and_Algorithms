@@ -1,7 +1,8 @@
 
 // 27. Remove Element
+// Approach First
 
-class Solution {
+class RemoveElement27 {
     public int removeElement(int[] nums, int val) {
         int count = 0;
         int left = 0;
@@ -22,5 +23,24 @@ class Solution {
             }
         }
         return nums.length - count;
+    }
+}
+
+// Approach Second
+
+class RemoveElement27 {
+    public int removeElement(int[] nums, int val) {
+        int i=0;
+        for(int j=0;j<nums.length;j++)
+        {
+            if(nums[j]!=val)
+            {
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+                i++;
+            }
+        }
+        return i;
     }
 }
