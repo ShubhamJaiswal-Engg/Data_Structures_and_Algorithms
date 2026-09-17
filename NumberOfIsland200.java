@@ -25,5 +25,5 @@ class NumberOfIsland200 {
         };
       };
       return count;
-    }
-}
+    };
+};
