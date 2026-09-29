@@ -1,5 +1,5 @@
 
-// 767. Reorganize String767. Reorganize String
+// 767. Reorganize String
 
 
 
