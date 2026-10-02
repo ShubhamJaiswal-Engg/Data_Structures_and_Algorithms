@@ -1,5 +1,5 @@
 
-
+// 131. Palindrome Partitioning
 
 class PalinPartit131 {
     public boolean palindrome(String s) {
@@ -19,7 +19,6 @@ class PalinPartit131 {
             ans.add(new ArrayList<>(list));
             return;
         }
-
         for (int i = 0; i < s.length(); i++) {
             String prefix = s.substring(0, i + 1);
             if (palindrome(prefix)) {
