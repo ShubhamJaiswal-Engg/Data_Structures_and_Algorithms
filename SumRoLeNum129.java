@@ -5,9 +5,12 @@ class SumRoLeNum129 {
     int ans = 0;
 
     private int preOrder(TreeNode root, int currentSum) {
+
+        // If root has single node
+        if(root == null) return 0;
         
         currentSum = currentSum * 10 + root.val;
-        if(root.left == null || root.right == null) {
+        if(root.left == null && root.right == null) {
             return currentSum;
         }
 
