@@ -1,5 +1,5 @@
 
-
+// 1963. Minimum Number of Swaps to Make the String Balanced
 
 class MinSwapStrBal1963 {
     public int minSwaps(String s) {
@@ -10,6 +10,7 @@ class MinSwapStrBal1963 {
                 size++;
             } else if (size > 0) {
                 // if single pair bracket
+                
                 size--;
             }
         }
