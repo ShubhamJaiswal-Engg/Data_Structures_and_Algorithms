@@ -22,3 +22,34 @@ class WildCardMatch44 {
         return dp[m][n];
     }
 }
+
+// tc -> O(2^(m + n))
+class WildCardMatch44 {
+    public boolean isMatch(String s, String p) {
+        return helpIsMatch(s, p, s.length() - 1, p.length() - 1);
+    }
+
+    private boolean helpIsMatch(String s, String p, int i, int j) {
+        if(i < 0 && j < 0) {
+            return true;
+        }
+        if(i >= 0 && j < 0) {
+            return false;
+        }
+        if(i < 0 && j >= 0) {
+            for(int k = 0; k <= j; j++) {
+                if(p.charAt(k) != '*') {
+                    return false;
+                }
+            }
+            return true;
+        }
+        if(s.charAt(i) == p.charAt(j) || p.charAt(j) == '?') {
+            return helpIsMatch(s, p, i - 1, j - 1);
+        } else if(p.charAt(j) == '*') {
+            return helpIsMatch(s, p, i - 1, j) || helpIsMatch(s, p, i, j - 1);
+        } else {
+            return false;
+        }
+    }
+}
