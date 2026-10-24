@@ -23,7 +23,7 @@ class WildCardMatch44 {
     }
 }
 
-// tc -> O(2^(m + n))
+// tc -> O(2^(m + n))  S.C -> O(n ^ 2)
 class WildCardMatch44 {
     public boolean isMatch(String s, String p) {
         return helpIsMatch(s, p, s.length() - 1, p.length() - 1);
@@ -51,5 +51,40 @@ class WildCardMatch44 {
         } else {
             return false;
         }
+    }
+}
+
+// tc -> O(m + n) S.C -> O(n)
+
+class WildCardMatch44 {
+    public boolean isMatch(String s, String p) {
+        int m = s.length(), n = p.length();
+        // boolean[][] dp = new boolean[m + 1][n + 1];
+        boolean[] prev = new boolean[n + 1];
+        boolean[] curr = new boolean[n + 1];
+        prev[0] = true;
+
+        for (int j = 1; j <= n; j++)
+            prev[j] = prev[j - 1] && p.charAt(j - 1) == '*';
+
+        for (int i = 1; i <= m; i++) {
+            curr[0] = false;                       
+            for (int j = 1; j <= n; j++) {
+                curr[0] = false;
+                char pc = p.charAt(j - 1);
+                if (pc == '*')
+                    curr[j] = prev[j] || curr[j - 1];
+                else if (pc == '?' || pc == s.charAt(i - 1))
+                    curr[j] = prev[j - 1];
+                else
+                    curr[j] = false; // this will run without this               
+            }
+
+            // swap prev to curr
+            boolean[] tmp = prev;                 
+            prev = curr;
+            curr = tmp;
+        }
+        return prev[n];
     }
 }
